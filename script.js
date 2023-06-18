@@ -42,11 +42,12 @@ function showConnectedContent() {
 }
 let code;
 function getStreamCode() {
-  code = window.prompt("Pleas enter sharing code");
+  code = window.prompt("Please enter sharing code");
 }
 let conn;
 function connectPeers() {
   conn = peer.connect(code);
+  console.log(conn)
 }
 peer.on("connection", (connection) => {
   conn = connection;
