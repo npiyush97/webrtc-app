@@ -73,8 +73,17 @@ peer.on("call", (call) => {
       window.remoteAudio.autoplay = true;
       window.peerStream = stream;
     });
-  }
-  else{
-   console.log('call denied') 
+  } else {
+    console.log("call denied");
   }
 });
+const hangupbtn = document.querySelector(".hangup-btn");
+hangupbtn.addEventListener("click", () => {
+  conn.close();
+  showCallContent();
+});
+
+conn.on("close", () => {
+  showCallContent();
+});
+
